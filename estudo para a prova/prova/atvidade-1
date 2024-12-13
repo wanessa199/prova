@@ -1,0 +1,65 @@
+
+const X = [3, 8, 4, 2, 1, 6, 8, 7, 11, 9];
+const Y = [2, 1, 5, 12, 3, 0, 1, 4, 5, 6];
+
+let soma = []; // Lista para guardar os resultados da soma
+
+for (let i = 0; i < X.length; i++) {
+  soma[i] = X[i] + Y[i]; // Soma os elementos correspondentes
+}
+
+console.log("Soma:", soma);
+
+
+let produto = [];
+for (let i = 0; i < X.length; i++) {
+  if (i < Y.length) {
+    produto.push(X[i] * Y[i]);
+  } else {
+    produto.push(0); // Caso Y não tenha o mesmo tamanho de X
+  }
+}
+
+console.log("Produto:", produto);
+
+let intersecao = [];
+for (let i = 0; i < X.length; i++) {
+  for (let j = 0; j < Y.length; j++) {
+    if (X[i] === Y[j] && !intersecao.includes(X[i])) {
+      intersecao.push(X[i]);
+    }
+  }
+}
+
+console.log("Interseção:", intersecao);
+
+let diferenca = [];
+for (let i = 0; i < X.length; i++) {
+  let estaNoY = false;
+  for (let j = 0; j < Y.length; j++) {
+    if (X[i] === Y[j]) {
+      estaNoY = true;
+      break;
+    }
+  }
+  if (!estaNoY) {
+    diferenca.push(X[i]);
+  }
+}
+
+console.log("Diferença:", diferenca);
+
+
+let uniao = [];
+for (let i = 0; i < X.length; i++) {
+  if (!uniao.includes(X[i])) {
+    uniao.push(X[i]);
+  }
+}
+for (let i = 0; i < Y.length; i++) {
+  if (!uniao.includes(Y[i])) {
+    uniao.push(Y[i]);
+  }
+}
+
+console.log("União:", uniao);
